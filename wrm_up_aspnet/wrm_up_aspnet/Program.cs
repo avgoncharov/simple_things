@@ -1,4 +1,11 @@
-﻿using System;
+﻿// This program created by Goncharov Andrey.
+// 2013-07-23.
+// Archangelsk, Russia.
+// Wellknow problem for ASP.NET sites managed  by IIS 7.0 and yearly, 
+// is long loading time at the first start or after long timeout between sequential calls.
+// This simple program call some website, specified in the ini-file, in a cycle with specified timeout between iteration.
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -75,7 +82,7 @@ namespace wrm_up_aspnet
 
 			return result;
 		}
-
+		
 		private static void read_ini()
 		{
 			var text = File.ReadAllText("wrm_up_aspnet.ini").Trim();
