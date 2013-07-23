@@ -1,7 +1,7 @@
 ﻿// This program created by Goncharov Andrey.
 // 2013-07-23.
 // Archangelsk, Russia.
-// Wellknow problem for ASP.NET sites managed  by IIS 7.0 and yearly, 
+// Wellknow problem for ASP.NET sites managed  by IIS 7.0 and earlier, 
 // is long loading time at the first start or after long timeout between sequential calls.
 // This simple program call some website, specified in the ini-file, in a cycle with specified timeout between iteration.
 
