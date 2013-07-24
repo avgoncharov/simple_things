@@ -3,4 +3,5 @@
 /wrm_up_aspnet/wrm_up_aspnet/bin/*
 /wrm_up_aspnet/wrm_up_aspnet/obj/*
 /wrm_up_aspnet/wrm_up_aspnet/*.user
+.git/
 
