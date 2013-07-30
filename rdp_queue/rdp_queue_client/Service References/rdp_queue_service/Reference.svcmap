@@ -18,16 +18,16 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://195.211.103.178:1234/rdp_queue" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:1234/rdp_queue" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="rdp_queue1.disco" MetadataType="Disco" ID="3d1e898f-ed9b-44f8-b5a6-5659fe513787" SourceId="1" SourceUrl="http://195.211.103.178:1234/rdp_queue?disco" />
-    <MetadataFile FileName="RdpQueueService1.wsdl" MetadataType="Wsdl" ID="5a49da8e-ce3c-4e08-8af7-29e73a0e6f62" SourceId="1" SourceUrl="http://195.211.103.178:1234/rdp_queue?wsdl" />
-    <MetadataFile FileName="rdp_queue5.xsd" MetadataType="Schema" ID="d4faae5a-5d11-4014-a87e-484fbf5866d6" SourceId="1" SourceUrl="http://195.211.103.178:1234/rdp_queue?xsd=xsd4" />
-    <MetadataFile FileName="rdp_queue51.xsd" MetadataType="Schema" ID="d95fefec-75ed-4274-b925-dd3617b181c8" SourceId="1" SourceUrl="http://195.211.103.178:1234/rdp_queue?xsd=xsd1" />
-    <MetadataFile FileName="rdp_queue52.xsd" MetadataType="Schema" ID="15c7a271-36c4-4904-8b45-f7886a2f0439" SourceId="1" SourceUrl="http://195.211.103.178:1234/rdp_queue?xsd=xsd0" />
-    <MetadataFile FileName="rdp_queue53.xsd" MetadataType="Schema" ID="8ab8205c-d1b2-4104-a7e1-b83b4eee93a7" SourceId="1" SourceUrl="http://195.211.103.178:1234/rdp_queue?xsd=xsd3" />
-    <MetadataFile FileName="rdp_queue54.xsd" MetadataType="Schema" ID="55d014f5-e54f-42d2-a0b0-4ce9bbd80190" SourceId="1" SourceUrl="http://195.211.103.178:1234/rdp_queue?xsd=xsd2" />
+    <MetadataFile FileName="rdp_queue.xsd" MetadataType="Schema" ID="1a49e5db-a0ec-42af-833f-fc476a16031d" SourceId="1" SourceUrl="http://localhost:1234/rdp_queue?xsd=xsd0" />
+    <MetadataFile FileName="rdp_queue.disco" MetadataType="Disco" ID="69d5be7d-ea38-431c-8dc9-4d4c9f845c8d" SourceId="1" SourceUrl="http://localhost:1234/rdp_queue?disco" />
+    <MetadataFile FileName="rdp_queue1.xsd" MetadataType="Schema" ID="86058211-ee1e-442c-8205-0591d3f6411c" SourceId="1" SourceUrl="http://localhost:1234/rdp_queue?xsd=xsd1" />
+    <MetadataFile FileName="rdp_queue2.xsd" MetadataType="Schema" ID="c7db9df1-d948-4383-8fd4-4749adc68d2b" SourceId="1" SourceUrl="http://localhost:1234/rdp_queue?xsd=xsd3" />
+    <MetadataFile FileName="RdpQueueService.wsdl" MetadataType="Wsdl" ID="b8fd1ebd-aea2-456a-ba5a-153ab8c8812c" SourceId="1" SourceUrl="http://localhost:1234/rdp_queue?wsdl" />
+    <MetadataFile FileName="rdp_queue3.xsd" MetadataType="Schema" ID="b9565d9c-ceea-4245-b27d-5fe8ff27478d" SourceId="1" SourceUrl="http://localhost:1234/rdp_queue?xsd=xsd2" />
+    <MetadataFile FileName="rdp_queue4.xsd" MetadataType="Schema" ID="94963e92-e195-418a-86b6-c60b86a68aff" SourceId="1" SourceUrl="http://localhost:1234/rdp_queue?xsd=xsd4" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

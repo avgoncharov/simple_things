@@ -75,7 +75,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -85,20 +87,20 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\rdp_queue_service\RdpQueueService1.wsdl" />
-    <None Include="Service References\rdp_queue_service\rdp_queue5.xsd">
+    <None Include="Service References\rdp_queue_service\RdpQueueService.wsdl" />
+    <None Include="Service References\rdp_queue_service\rdp_queue.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\rdp_queue_service\rdp_queue51.xsd">
+    <None Include="Service References\rdp_queue_service\rdp_queue1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\rdp_queue_service\rdp_queue52.xsd">
+    <None Include="Service References\rdp_queue_service\rdp_queue2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\rdp_queue_service\rdp_queue53.xsd">
+    <None Include="Service References\rdp_queue_service\rdp_queue3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\rdp_queue_service\rdp_queue54.xsd">
+    <None Include="Service References\rdp_queue_service\rdp_queue4.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\rdp_queue_service\rdp_queue_client.rdp_queue_service.RdpState.datasource">
@@ -124,7 +126,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\rdp_queue_service\rdp_queue1.disco" />
+    <None Include="Service References\rdp_queue_service\rdp_queue.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.btnLock = new System.Windows.Forms.Button();
 			this.btnFree = new System.Windows.Forms.Button();
 			this.SuspendLayout();
@@ -64,7 +65,8 @@
 			this.ClientSize = new System.Drawing.Size(405, 165);
 			this.Controls.Add(this.btnFree);
 			this.Controls.Add(this.btnLock);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MaximizeBox = false;
 			this.Name = "Form1";
 			this.Text = "Queue";
 			this.ResumeLayout(false);
