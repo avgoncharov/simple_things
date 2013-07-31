@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Drawing;
+using System.ServiceModel;
 using System.Windows.Forms;
 using rdp_queue_client.Properties;
 using rdp_queue_client.rdp_queue_service;
@@ -22,20 +23,23 @@ namespace rdp_queue_client
 		private void UpdateData()
 		{
 			RdpState state;
-
+			
+			var srvc = ConnectToService();
+			
 			try
 			{
-				using (var srvc = new RdpQueueServiceClient())
-				{
-					state = srvc.GetRdpState();
-				}
+				state = srvc.GetRdpState();
 			}
 			catch
 			{
 				lblServerState.Text = Resources.NoConnection;
 				return;
 			}
-			
+			finally
+			{
+				CloseConnection(srvc);
+			}
+
 
 			FormState(state);
 
@@ -53,8 +57,8 @@ namespace rdp_queue_client
 			{
 				timer1.Enabled = false;
 				var result = MessageBox.Show(Resources.ServerIsFree, Resources.GoToSrv);
-				
-				if(result == DialogResult.OK || result != DialogResult.OK)
+
+				if (result == DialogResult.OK || result != DialogResult.OK)
 					timer1.Enabled = true;
 
 			}
@@ -78,9 +82,15 @@ namespace rdp_queue_client
 
 		private void btnEnqueue_Click(object sender, EventArgs e)
 		{
-			using (var srvc = new RdpQueueServiceClient())
+			var srvc = ConnectToService();
+		
+			try
 			{
 				srvc.Enqueue(ConfigurationManager.AppSettings["me"]);
+			}
+			finally
+			{
+				CloseConnection(srvc);
 			}
 
 			UpdateData();
@@ -88,14 +98,47 @@ namespace rdp_queue_client
 
 		private void btnGoOutFromQueue_Click(object sender, EventArgs e)
 		{
-			using (var srvc = new RdpQueueServiceClient())
+			var srvc = ConnectToService();
+
+			try
 			{
 				srvc.DeleteFromQueue(ConfigurationManager.AppSettings["me"]);
+			}
+			finally
+			{
+				CloseConnection(srvc);
 			}
 
 			UpdateData();
 		}
 
-		
+		private static RdpQueueServiceClient ConnectToService()
+		{
+			var srvc = new RdpQueueServiceClient();
+
+			if (srvc.ChannelFactory.Credentials != null)
+			{
+				srvc.ChannelFactory.Credentials.Windows.ClientCredential.UserName = "user";
+				srvc.ChannelFactory.Credentials.Windows.ClientCredential.Password = "password";
+				srvc.ChannelFactory.Credentials.Windows.ClientCredential.Domain = "localhost";
+			}
+
+			return srvc;
+		}
+
+		private static void CloseConnection(RdpQueueServiceClient srvc)
+		{
+			if (srvc == null)
+				return;
+
+			if (srvc.State == CommunicationState.Faulted)
+			{
+				srvc.Abort();
+			}
+			else
+			{
+				srvc.Close();
+			}
+		}
 	}
 }

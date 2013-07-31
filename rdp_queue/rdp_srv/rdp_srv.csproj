@@ -83,20 +83,20 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\rdp_queue_service\RdpQueueService.wsdl" />
-    <None Include="Service References\rdp_queue_service\rdp_queue.xsd">
+    <None Include="Service References\rdp_queue_service\RdpQueueService1.wsdl" />
+    <None Include="Service References\rdp_queue_service\rdp_queue5.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\rdp_queue_service\rdp_queue1.xsd">
+    <None Include="Service References\rdp_queue_service\rdp_queue51.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\rdp_queue_service\rdp_queue2.xsd">
+    <None Include="Service References\rdp_queue_service\rdp_queue52.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\rdp_queue_service\rdp_queue3.xsd">
+    <None Include="Service References\rdp_queue_service\rdp_queue53.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\rdp_queue_service\rdp_queue4.xsd">
+    <None Include="Service References\rdp_queue_service\rdp_queue54.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\rdp_queue_service\rdp_srv.rdp_queue_service.RdpState.datasource">
@@ -110,9 +110,6 @@
     <WCFMetadataStorage Include="Service References\rdp_queue_service\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\rdp_queue_service\rdp_queue.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\rdp_queue_service\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -123,6 +120,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\rdp_queue_service\rdp_queue1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

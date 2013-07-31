@@ -1,25 +1,118 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.ServiceModel;
 using System.Text;
+using System.Threading;
 
 namespace rdp_queue_service
 {
-	// NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
+	[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple)]
 	public class RdpQueueService : IRdpQueueService
 	{
+		#region IRdpQueueService
 		public RdpState GetRdpState()
 		{
-			var current = GetCurrentLocker();
+			_lockObj.EnterReadLock();
+			try
+			{
+				var current = GetCurrentLocker();
 
-			return new RdpState
-			       	{
-			       		CurrentLocker = current,
-			       		Queue = RestoreQueueFromFile(),
-			       		Free = String.IsNullOrEmpty(current),
-			       	};
+				return new RdpState
+					{
+						CurrentLocker = current,
+						Queue = RestoreQueueFromFile(),
+						Free = String.IsNullOrEmpty(current),
+					};
+			}
+			catch (Exception ex)
+			{
+				File.WriteAllText("log.log", ex.Message);
+				throw;
+			}
+			finally
+			{
+				_lockObj.ExitReadLock();
+			}
 		}
 
+		public void Enqueue(string email)
+		{
+			_lockObj.EnterWriteLock();
+			try
+			{
+				var queue = RestoreQueueFromFile();
+				queue.Enqueue(email);
+
+				SaveQueueToFile(queue);
+			}
+			finally
+			{
+				_lockObj.ExitWriteLock();
+			}
+		}
+
+		public void DeleteFromQueue(string email)
+		{
+			_lockObj.EnterWriteLock();
+			try
+			{
+				var queue = RestoreQueueFromFile();
+
+				var newQueue = new Queue<string>();
+				var deletedFirst = false;
+
+				while (queue.Count > 0)
+				{
+					var i = queue.Dequeue();
+
+					if (i == email && !deletedFirst)
+					{
+						deletedFirst = true;
+					}
+					else
+					{
+						newQueue.Enqueue(i);
+					}
+				}
+
+				SaveQueueToFile(newQueue);
+			}
+			finally
+			{
+				_lockObj.ExitWriteLock();
+			}
+		}
+
+
+		public void LockRdp()
+		{
+			_lockObj.EnterWriteLock();
+			try
+			{
+				Dequeue();
+			}
+			finally
+			{
+				_lockObj.ExitWriteLock();
+			}
+		}
+
+		public void FreeRdp()
+		{
+			_lockObj.EnterWriteLock();
+			try
+			{
+				SetCurrentLocker(String.Empty);
+			}
+			finally
+			{
+				_lockObj.ExitWriteLock();
+			}
+		}
+		#endregion
+
+		#region Private
 		private static string GetCurrentLocker()
 		{
 			return File.ReadAllText("current.txt");
@@ -45,15 +138,6 @@ namespace rdp_queue_service
 			return result;
 		}
 
-		public void Enqueue(string email)
-		{
-			var queue = RestoreQueueFromFile();
-			queue.Enqueue(email);
-			
-			SaveQueueToFile(queue);
-
-		}
-
 		private static void SaveQueueToFile(Queue<string> queue)
 		{
 			var strB = new StringBuilder();
@@ -64,7 +148,7 @@ namespace rdp_queue_service
 			File.WriteAllText("q_state.txt", strB.ToString());
 		}
 
-		public void Dequeue()
+		private static void Dequeue()
 		{
 			var queue = RestoreQueueFromFile();
 			var current = queue.Dequeue();
@@ -73,40 +157,8 @@ namespace rdp_queue_service
 
 			SaveQueueToFile(queue);
 		}
+		#endregion
 
-		public void DeleteFromQueue(string email)
-		{
-			var queue = RestoreQueueFromFile();
-
-			var newQueue = new Queue<string>();
-			var deletedFirst = false;
-			
-			while(queue.Count >0)
-			{
-				var i = queue.Dequeue();
-				
-				if(i == email && !deletedFirst)
-				{
-					deletedFirst = true;
-				}
-				else
-				{
-					newQueue.Enqueue(i);
-				}
-			}
-
-			SaveQueueToFile(newQueue);
-		}
-
-
-		public void LockRdp()
-		{
-			Dequeue();
-		}
-
-		public void FreeRdp()
-		{
-			SetCurrentLocker(String.Empty);
-		}
+		private ReaderWriterLockSlim _lockObj = new ReaderWriterLockSlim();
 	}
 }

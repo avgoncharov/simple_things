@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="DP2Y/YqtKSa75+awN7GTjPK1UK4=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="5PMeFQ8B++s5kAQ664ya0oiNO/U=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="wsHttpBinding" name="WSHttpBinding_IRdpQueueService">
       <properties>
@@ -127,10 +127,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WSHttpBinding_IRdpQueueService" contract="rdp_queue_service.IRdpQueueService" bindingType="wsHttpBinding" address="http://localhost:1234/rdp_queue" bindingConfiguration="WSHttpBinding_IRdpQueueService">
+    <endpoint name="WSHttpBinding_IRdpQueueService" contract="rdp_queue_service.IRdpQueueService" bindingType="wsHttpBinding" address="http://localhost:1235/rdp_queue" bindingConfiguration="WSHttpBinding_IRdpQueueService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:1234/rdp_queue</serializedValue>
+          <serializedValue>http://localhost:1235/rdp_queue</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
