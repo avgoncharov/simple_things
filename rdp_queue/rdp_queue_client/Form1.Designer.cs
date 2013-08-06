@@ -28,14 +28,12 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.lbQueue = new System.Windows.Forms.ListBox();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.btnGoOutFromQueue = new System.Windows.Forms.Button();
 			this.btnEnqueue = new System.Windows.Forms.Button();
 			this.lblServerState = new System.Windows.Forms.Label();
-			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -89,12 +87,6 @@
 			this.lblServerState.TabIndex = 3;
 			this.lblServerState.Text = "Server state";
 			// 
-			// timer1
-			// 
-			this.timer1.Enabled = true;
-			this.timer1.Interval = 3000;
-			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -106,6 +98,7 @@
 			this.MaximizeBox = false;
 			this.Name = "Form1";
 			this.Text = "Rdp queue client";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
 			this.groupBox1.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -118,7 +111,6 @@
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.Button btnEnqueue;
 		private System.Windows.Forms.Label lblServerState;
-		private System.Windows.Forms.Timer timer1;
 		private System.Windows.Forms.Button btnGoOutFromQueue;
 	}
 }

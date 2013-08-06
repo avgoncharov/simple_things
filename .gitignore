@@ -19,3 +19,6 @@
 /rdp_queue/rdp_srv/bin/*
 /rdp_queue/rdp_srv/obj/*
 /rdp_queue/rdp_srv/*.user
+/rdp_queue/lg_hk/bin/*
+/rdp_queue/lg_hk/obj/*
+/rdp_queue/lg_hk/*.user
