@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Drawing;
 using System.ServiceModel;
+using System.Threading;
 using System.Windows.Forms;
 using rdp_queue_client.Properties;
 using rdp_queue_client.rdp_queue_service;
@@ -13,11 +14,13 @@ namespace rdp_queue_client
 		public Form1()
 		{
 			InitializeComponent();
+
+			ThreadPool.QueueUserWorkItem(Work);
 		}
 
 		private void timer1_Tick(object sender, EventArgs e)
 		{
-			UpdateData();
+			//UpdateData();
 		}
 
 		private void UpdateData()
@@ -93,7 +96,7 @@ namespace rdp_queue_client
 				CloseConnection(srvc);
 			}
 
-			UpdateData();
+			//UpdateData();
 		}
 
 		private void btnGoOutFromQueue_Click(object sender, EventArgs e)
@@ -109,19 +112,53 @@ namespace rdp_queue_client
 				CloseConnection(srvc);
 			}
 
-			UpdateData();
+		//	UpdateData();
+		}
+
+		private delegate void InvokeDelegate();
+		private void UpdateDataThread(object state)
+		{
+			if(lblServerState.InvokeRequired)
+			{
+				
+				var asr = lblServerState.BeginInvoke(new InvokeDelegate(UpdateData));
+
+				while (!asr.IsCompleted)
+				{
+					Thread.Sleep(1000);
+				}
+			}
+			else
+			{
+				UpdateData();
+			}
+		}
+
+		private void Work(object state)
+		{
+			while (true)
+			{
+				try
+				{
+					UpdateDataThread(true);
+				}catch
+				{
+				}
+
+				Thread.Sleep(3000);
+			}
 		}
 
 		private static RdpQueueServiceClient ConnectToService()
 		{
 			var srvc = new RdpQueueServiceClient();
-
-			if (srvc.ChannelFactory.Credentials != null)
-			{
-				srvc.ChannelFactory.Credentials.Windows.ClientCredential.UserName = "user";
-				srvc.ChannelFactory.Credentials.Windows.ClientCredential.Password = "password";
-				srvc.ChannelFactory.Credentials.Windows.ClientCredential.Domain = "localhost";
-			}
+			
+			if (String.IsNullOrEmpty(ConfigurationManager.AppSettings["aut"]) || srvc.ChannelFactory.Credentials == null)
+				return srvc;
+			
+			srvc.ChannelFactory.Credentials.Windows.ClientCredential.UserName = ConfigurationManager.AppSettings["userId"];
+			srvc.ChannelFactory.Credentials.Windows.ClientCredential.Password = ConfigurationManager.AppSettings["password"];
+			srvc.ChannelFactory.Credentials.Windows.ClientCredential.Domain = ConfigurationManager.AppSettings["dns"];
 
 			return srvc;
 		}
