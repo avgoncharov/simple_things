@@ -49,21 +49,22 @@ namespace rdp_queue_client
 			var go = state.Free && state.Queue.Count > 0 && state.Queue.Peek() == ConfigurationManager.AppSettings["me"];
 
 			while (state.Queue.Count > 0)
-			{
 				lbQueue.Items.Add(state.Queue.Dequeue());
-			}
-			
-			if (go)
+
+			if (go && DateTime.Now > _nextTime)
 			{
-				
 				var result = MessageBox.Show(Resources.ServerIsFree, Resources.GoToSrv);
 
 				if (result == DialogResult.OK || result != DialogResult.OK)
-					;
-
+					_nextTime = DateTime.Now.AddSeconds(15);
 			}
-
+			else
+			{
+				_nextTime = DateTime.Now.AddDays(-1);
+			}
 		}
+
+		private static DateTime _nextTime = DateTime.Now.AddDays(-1);
 
 		private void FormState(RdpState state)
 		{
