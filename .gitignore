@@ -23,3 +23,10 @@
 /rdp_queue/lg_hk/bin/*
 /rdp_queue/lg_hk/obj/*
 /rdp_queue/lg_hk/*.user
+/rstfl_srvc/_ReSharper.rstfl_srvc/*
+/rstfl_srvc/*.user
+/rstfl_srvc/*.suo
+/rstfl_srvc/rstfl_srvc/bin/*
+/rstfl_srvc/rstfl_srvc/obj/*
+/rstfl_srvc/rstfl_srvc/*.user
+/rstfl_srvc/rstfl_srvc/*.suo
