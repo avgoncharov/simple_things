@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.ServiceModel;
 using System.Threading;
 using System.Windows.Forms;
@@ -12,6 +13,9 @@ namespace rdp_queue_client
 {
 	public partial class Form1 : Form
 	{
+		[DllImport("user32.dll")]
+		static extern bool FlashWindow(IntPtr hwnd, bool bInvert);
+
 		public Form1()
 		{
 			InitializeComponent();
@@ -53,13 +57,20 @@ namespace rdp_queue_client
 
 			if (go && DateTime.Now > _nextTime)
 			{
-				var result = MessageBox.Show(Resources.ServerIsFree, Resources.GoToSrv);
+				FlashWindow(this.Handle, true);
 
+				var result = MessageBox.Show(Resources.ServerIsFree, Resources.GoToSrv);
+				
 				if (result == DialogResult.OK || result != DialogResult.OK)
+				{
 					_nextTime = DateTime.Now.AddSeconds(15);
+
+				}
 			}
 			else
 			{
+				//FlashWindow(this.Handle, false);
+
 				_nextTime = DateTime.Now.AddDays(-1);
 			}
 		}
