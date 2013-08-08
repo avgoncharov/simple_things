@@ -6,6 +6,7 @@
 .git/
 /rdp_queue/_ReSharper.rdp_queue/*
 /rdp_queue/*.user
+/rdp_queue/*.suo
 /rdp_queue/rdp_queue/*
 /rdp_queue/rdp_queue_client/bin/*
 /rdp_queue/rdp_queue_client/obj/*
