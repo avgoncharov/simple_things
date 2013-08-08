@@ -30,3 +30,7 @@
 /rstfl_srvc/rstfl_srvc/obj/*
 /rstfl_srvc/rstfl_srvc/*.user
 /rstfl_srvc/rstfl_srvc/*.suo
+/rstfl_srvc/rstfl_client/bin/*
+/rstfl_srvc/rstfl_client/obj/*
+/rstfl_srvc/rstfl_client/*.user
+/rstfl_srvc/rstfl_client/*.suo
