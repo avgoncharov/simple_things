@@ -40,3 +40,7 @@
 /integration/restfull_service/obj/*
 /integration/restfull_service/*.user
 /integration/restfull_service/*.suo
+/integration/restfull_client/bin/*
+/integration/restfull_client/obj/*
+/integration/restfull_client/*.user
+/integration/restfull_client/*.suo
