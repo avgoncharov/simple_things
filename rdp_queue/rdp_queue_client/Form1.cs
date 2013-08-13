@@ -58,21 +58,11 @@ namespace rdp_queue_client
 			if (go && DateTime.Now > _nextTime)
 			{
 				FlashWindow(this.Handle, true);
-
-				var result = MessageBox.Show(Resources.ServerIsFree, Resources.GoToSrv);
-				
-				if (result == DialogResult.OK || result != DialogResult.OK)
-				{
-					_nextTime = DateTime.Now.AddSeconds(15);
-
-				}
+				_nextTime = DateTime.Now.AddSeconds(25);
 			}
 			else
-			{
-				//FlashWindow(this.Handle, false);
-
 				_nextTime = DateTime.Now.AddDays(-1);
-			}
+			
 		}
 
 		private static DateTime _nextTime = DateTime.Now.AddDays(-1);
