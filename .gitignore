@@ -34,3 +34,9 @@
 /rstfl_srvc/rstfl_client/obj/*
 /rstfl_srvc/rstfl_client/*.user
 /rstfl_srvc/rstfl_client/*.suo
+/integration/*.user
+/integration/*.suo
+/integration/restfull_service/bin/*
+/integration/restfull_service/obj/*
+/integration/restfull_service/*.user
+/integration/restfull_service/*.suo
