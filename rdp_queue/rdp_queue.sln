@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rdp_queue", "rdp_queue\rdp_queue.csproj", "{BFEAA7CD-9307-45CD-96BF-B06D72BC4A80}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rdp_queue_srv", "rdp_queue_srv\rdp_queue_srv.csproj", "{C923F142-C2F2-4411-8C3A-986E40BBD0E8}"

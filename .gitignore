@@ -44,3 +44,14 @@
 /integration/restfull_client/obj/*
 /integration/restfull_client/*.user
 /integration/restfull_client/*.suo
+/web_queue_client/packages/*
+/web_queue_client/web_queue_client/obj/*
+/web_queue_client/web_queue_client/bin/*
+/web_queue_client/web_queue_client/*.user
+/web_queue_client/web_queue_client.v11.suo
+/web_queue_client/web_queue_client.v12.suo
+/rdp_queue/_UpgradeReport_Files/*
+
+/rdp_queue/UpgradeLog.XML
+
+/rdp_queue/UpgradeLog.htm
