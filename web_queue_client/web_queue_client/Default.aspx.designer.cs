@@ -40,15 +40,6 @@ namespace web_queue_client {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl free;
         
         /// <summary>
-        /// queue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable queue;
-        
-        /// <summary>
         /// users control.
         /// </summary>
         /// <remarks>
@@ -74,5 +65,14 @@ namespace web_queue_client {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputButton pop;
+        
+        /// <summary>
+        /// queue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTable queue;
     }
 }

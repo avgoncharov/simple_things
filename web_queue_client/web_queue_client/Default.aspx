@@ -36,14 +36,6 @@
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="col-lg-5" style="padding-left: 35px">
-				<label class="text-muted">Очередь:</label>
-				<table class="table table-hover table-bordered table-striped" id="queue" runat="server">
-				</table>
-			</div>
-		</div>
-
 		<div class="form-group">
 			<div class="row" style="padding-left: 20px; padding-bottom: 15px">
 				<div class="col-lg-5">
@@ -67,6 +59,13 @@
 
 		</div>
 
+		<div class="row">
+			<div class="col-lg-5" style="padding-left: 35px">
+				<label class="text-muted">Очередь:</label>
+				<table class="table table-hover table-bordered table-striped" id="queue" runat="server">
+				</table>
+			</div>
+		</div>
 	</form>
 </body>
 </html>
