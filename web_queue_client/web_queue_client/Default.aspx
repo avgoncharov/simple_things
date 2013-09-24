@@ -21,15 +21,15 @@
 <body style="background-image: url(img/random_grey_variations.png);">
 	<form id="form1" runat="server">
 		<div style="padding-left: 30%; padding-top: 5%">
-			<div style="width: 150%">
+			<div class="col-lg-8" style="background-color: white; padding: 25px; border-radius: 10px">
 				<div class="row" style="padding-top: 0px;">
-					<div class="col-lg-5" style="padding-left: 0px">
+					<div style="padding-left: 0px">
 						<label class="text-muted">Cервер:</label>
 						<label class="text-danger" style="font-size: large">localhost</label>
 					</div>
 				</div>
 				<div class="row" style="padding-bottom: 15px">
-					<div class="col-lg-5" style="padding-left: 0px">
+					<div  style="padding-left: 0px">
 						<label class="text-muted">Состояние сервера:</label>
 						<strong>
 							<label runat="server" id="locked" class="text-danger" style="font-size: medium"></label>
@@ -40,7 +40,7 @@
 
 				<div class="form-group">
 					<div class="row" style="padding-left: 0px; padding-bottom: 15px">
-						<div class="col-lg-5" style="padding-left: 0px">
+						<div style="padding-left: 0px">
 							<select class="form-control" id="users" runat="server" onchange="submit()" onserverchange="UserChange">
 								<option>Федотов Сергей</option>
 								<option>Малышев Григорий</option>
@@ -62,7 +62,7 @@
 				</div>
 
 				<div class="row">
-					<div class="col-lg-5" style="padding-left: 0px;">
+					<div style="padding-left: 0px;">
 						<label class="text-muted">Очередь:</label>
 						<div style="background-color: white">
 							<table class="table table-hover table-bordered table-striped" id="queue" runat="server">
