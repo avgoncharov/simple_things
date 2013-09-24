@@ -20,8 +20,8 @@
 </head>
 <body style="background-image: url(img/random_grey_variations.png);">
 	<form id="form1" runat="server">
-		<div style="padding-left: 30%; padding-top: 5%">
-			<div class="col-lg-8" style="background-color: white; padding: 25px; border-radius: 10px">
+		<div style="margin-left:auto; margin-right:auto; width: 45%; padding-top: 10%">
+			<div style="background-color: white; padding: 25px; border-radius: 10px">
 				<div class="row" style="padding-top: 0px;">
 					<div style="padding-left: 0px">
 						<label class="text-muted">Cервер:</label>
